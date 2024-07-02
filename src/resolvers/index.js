@@ -22,8 +22,8 @@ resolver.define('getEvents', async () => {
   return data
 })
 
-resolver.define('getOrders', async (eventID) => {
-  const response = await fetch("https://api.humanitix.com/v1/events/"+{eventID}+"/orders?page=1", {
+resolver.define('getOrders', async () => {
+  const response = await fetch(`https://api.humanitix.com/v1/events/6684201aa11fb751bbb96424/orders?page=1`, {
     method:"GET",
     headers: {
         'Accept': 'application/json',
@@ -31,18 +31,21 @@ resolver.define('getOrders', async (eventID) => {
     }
   })
   const data = await response.json()
+  // console.log('getOrders' , data)
   return data
-})
+});
 
 resolver.define('getSpecificEvent', async (eventID) => {
-  const response = await fetch("https://api.humanitix.com/v1/events/"+{eventID}, {
+  const response = await fetch("https://api.humanitix.com/v1/events/6684201aa11fb751bbb96424", {
     method:"GET",
     headers: {
         'Accept': 'application/json',
         "X-API-KEY": process.env.HUMANITIX_KEY
     }
   })
-  const data = await response.json()
+  const data = await response.json();
+  // console.log('getSpecificEvent', data);
+
   return data
 })
 

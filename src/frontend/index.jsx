@@ -2,10 +2,26 @@ import React, { useEffect, useState } from 'react';
 import ForgeReconciler, { Text, Heading, Box, Textfield, xcss, Stack, LinkButton, Image } from '@forge/react';
 // import ForgeUI, { Fragment } from '@forge/ui';
 import { invoke } from '@forge/bridge';
+import Events from './events';
+import Details from './details';
+
+
 
 
 const App = () => {
   const [data, setData] = useState(null);
+  const [clicked, setClicked] = useState(true);
+
+  const setToEventsPage = () => {
+    console.log('setToEvents page');
+    setClicked(true);
+  }
+  const setToDetailsPage = () => {
+    console.log('setToDetails page');
+    setClicked(false);
+  }
+
+  
 
   useEffect(() => {
     invoke('getEvents').then(setData);
@@ -35,8 +51,8 @@ const GetStartedCard = ({ header, description, imageUrl }) => {
         <Image src={imageUrl}></Image>
         <Heading as="h3" level="h600">{header}</Heading>
         <Box xcss={textStyle}>{description}</Box>
-        <LinkButton spacing="none" appearance="link" href="/">
-          Get started
+        <LinkButton spacing="none" appearance="link" href="https://humanitix.com/au/search?query=uniqueName">
+          Check me out in Hu
         </LinkButton>
       </Stack>
     </Box>
@@ -59,18 +75,24 @@ const GetStartedCardList = () => {
     </Stack>
   );
 };
-
+  console.log('click is ' ,clicked)
 
 
   return (
     <>
-      <Box>
+      {/* <Box>
         <Heading as="h1">Charitix</Heading>
         <Textfield placeholder='Search for an event'/>
       </Box>
       {data ? data.events.map((event, index) => (
         <GetStartedCard key={event._id} header={event.name} description={event.description} imageUrl={event.bannerImage?.url || 'https://picsum.photos/id/1/200/237'} />
-      )) : 'Loading...'}
+      )) : 'Loading...'} */}
+      {clicked
+        ?<>
+        <Events handleSetPage={setToDetailsPage}/>
+        </>
+        :<Details handleSetPage={setToEventsPage}/>
+      }
     </>
   );
 };
