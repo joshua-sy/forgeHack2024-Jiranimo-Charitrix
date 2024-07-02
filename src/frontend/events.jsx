@@ -4,6 +4,8 @@ import { invoke } from '@forge/bridge';
 
 const Events = ({handleSetPage}) => {
   const [data, setData] = useState(null);
+  // const [toShowData, setToShowData] = useState(null);
+
 
   useEffect(() => {
     invoke('getEvents').then(setData);
@@ -14,9 +16,26 @@ const Events = ({handleSetPage}) => {
   marginBottom: 'space.200',
 });
 
+const titleContainerStyle = xcss({
+  padding: 'space.200',
+  backgroundColor: 'color.background.accent.teal.subtle',
+
+});
+const eventsContainerStyle = xcss({
+  marginTop: 'space.200',
+});
 const logoTextStyle = xcss({
-  color: 'color.text.accent.blue800',
+  color: 'color.text.inverse',
   marginBottom: 'space.200',
+});
+
+const containerStyle = xcss({
+  borderStyle: 'solid',
+  padding: 'space.200',
+});
+
+const textFieldContainerStyle = xcss({
+  padding: 'space.200',
 });
 
 const removePTags = (stringWithPTags) => {
@@ -35,6 +54,18 @@ const cardStyle = xcss({
     backgroundColor: 'elevation.surface.hovered',
   },
 });
+
+const handleSearchReq = (e) => {
+  const searchReq = e.target.value;
+  if (searchReq === '') {
+    invoke('getEvents').then(setData);
+  } else {
+    const filteredEvents = data.events.filter(event => 
+      event.name.toLowerCase().includes(searchReq.toLowerCase())
+    ) || [];
+    setData(filteredEvents);
+  }
+}
 
 const GetStartedCard = ({ header, description, imageUrl }) => {
   return (
@@ -55,34 +86,21 @@ const GetStartedCard = ({ header, description, imageUrl }) => {
   );
 }
 
-const GetStartedCardList = () => {
-  const cardsData = [
-    { header: 'Header 1', description: 'Description 1' },
-    { header: 'Header 2', description: 'Description 2' },
-    { header: 'Header 3', description: 'Description 3' },
-    // Add more card data as needed
-  ];
-
-  return (
-    <Stack space="space.300">
-      {cardsData.map((card, index) => (
-        <GetStartedCard key={index} header={card.header} description={card.description} />
-      ))}
-    </Stack>
-  );
-};
-
-
-
   return (
     <>
-      <Box>
+    <Box xcss={containerStyle}>
+      <Box xcss={titleContainerStyle}>
         <Heading xcss={logoTextStyle} as="h1">Charitix</Heading>
-        <Textfield placeholder='Search for an event'/>
+        <Box xcss={textFieldContainerStyle}>
+          <Textfield placeholder='Search for an event'/>
+        </Box>
       </Box>
-      {data ? data.events.map((event, index) => (
-        <GetStartedCard key={event._id} header={event.name} description={event.description} imageUrl={event.bannerImage?.url || 'https://picsum.photos/id/237/200/300'} />
-      )) : 'Loading...'}
+      <Box xcss={eventsContainerStyle}>
+        {data ? data.events.map((event, index) => (
+          <GetStartedCard key={event._id} header={event.name} description={event.description} imageUrl={event.bannerImage?.url || 'https://picsum.photos/id/237/200/300'} />
+        )) : 'Loading...'}
+      </Box>
+    </Box>
     </>
   );
 };
