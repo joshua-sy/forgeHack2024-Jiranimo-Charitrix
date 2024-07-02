@@ -1,0 +1,27 @@
+modules:
+  macro:
+    - key: charitix2-hello-world-macro
+      resource: main
+      render: native
+      resolver:
+        function: resolver
+      title: Charitix2
+  function:
+    - key: resolver
+      handler: index.handler
+resources:
+  - key: main
+    path: src/frontend/index.jsx
+permissions:
+  external:
+    fetch:
+      backend:
+        - 'https://api.humanitix.com'
+        - api.openweathermap.org
+    images:
+      - 'https://cdn.filestackcontent.com'
+      - 'https://picsum.photos'
+app:
+  runtime:
+    name: nodejs18.x
+  id: ari:cloud:ecosystem::app/cc389165-4371-4eab-9d9c-25baa97dfe92
