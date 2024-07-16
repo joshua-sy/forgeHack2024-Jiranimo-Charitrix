@@ -1,46 +1,22 @@
-#THIS IS THE OFFICIAL GITHUB FILE FOR JIRANIMO CHARITRIX
-We built most of the backend in the other repo which was transferred to here. Most of the frontend was built in this repo.
+# What is Charitix
+Charitix was our solution to promoting volunteering and dontating opportunities to Atlassian employees. Our application allows its users to view events from Humanitix on their confluence pages. 
 
+# Have a look at our app in action here
 https://github.com/user-attachments/assets/a1122586-1ec5-465f-9daa-83540964bdd3
 
-[![Watch the video](forgeHackTitle.png)](forgeHackDemo.mp4)
+# When was this app developed
+This application was developed during ForgeHack 2024 hosted by Atlassian. The event was held for 3 days.
+
+# What was used to develop Charitix
+We developed Charitix using Forge by Atlassian. We learnt how to use forge during the the workshop in day 1. We then developed it in Day 2.
 
 
+# Check out our presentation here
+https://www.canva.com/design/DAGJzJ_por0/ii5Db55o9N26YUqFoztsww/edit
 
 
-# Forge Hello World
+# THIS IS THE OFFICIAL GITHUB FILE FOR JIRANIMO CHARITRIX
+We built most of the backend in the other repo which was transferred to here. Most of the frontend was built in this repo. We had trouble developing the backend and frontend at the same time in confluence when we were trying to deploy. Our quick solution was to create two different forge apps where one forge app was used to develop the backend and the other was used to develop the frontend. This repo was used to develop the frontend. The backend code was copy pasted into this repo from the other repo.
 
-This project contains a Forge app written in Javascript that displays `Hello World!` in a Confluence macro. 
-
-See [developer.atlassian.com/platform/forge/](https://developer.atlassian.com/platform/forge) for documentation and tutorials explaining Forge.
-
-## Requirements
-
-See [Set up Forge](https://developer.atlassian.com/platform/forge/set-up-forge/) for instructions to get set up.
-
-## Quick start
-
-- Modify your app frontend by editing the `src/frontend/index.jsx` file.
-
-- Modify your app backend by editing the `src/resolvers/index.js` file to define resolver functions. See [Forge resolvers](https://developer.atlassian.com/platform/forge/runtime-reference/custom-ui-resolver/) for documentation on resolver functions.
-
-- Build and deploy your app by running:
-```
-forge deploy
-```
-
-- Install your app in an Atlassian site by running:
-```
-forge install
-```
-
-- Develop your app by running `forge tunnel` to proxy invocations locally:
-```
-forge tunnel
-```
-
-### Notes
-- Use the `forge deploy` command when you want to persist code changes.
-- Use the `forge install` command when you want to install the app on a new site.
-- Once the app is installed on a site, the site picks up the new app changes you deploy without needing to rerun the install command.
-
+The old repo --> where we developed the backend
+https://github.com/joshua-sy/forgeHack2024-JIRAnimo/tree/events
