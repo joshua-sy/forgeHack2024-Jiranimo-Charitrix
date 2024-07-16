@@ -14,6 +14,8 @@ We developed Charitix using Forge by Atlassian. We learnt how to use forge durin
 # Check out our presentation here
 https://www.canva.com/design/DAGJzJ_por0/ii5Db55o9N26YUqFoztsww/edit
 
+# Check out the Figma Prototype
+https://www.figma.com/design/PERnQ7pUMWA6czTK7dPTf9/Charitix?node-id=0-1&t=L3wpIgk6DYicVBOw-1
 
 # Special Thanks 
 Special thanks to Tharushi for developing the backend. Her commits won't be seen here but definitely in the other repo below. Also thanks to Zane for creating the figma file and canva slides for the presentation. Thanks to Lara Holmes for making the event lively and giving us free Atlassian merch during the hackathon. Finally, thank you to Jemma S and Esha Sood for organising the ForgeHack 2024. Hoping to attend another forgeHack :D
