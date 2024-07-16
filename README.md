@@ -2,6 +2,11 @@
 Charitix was our solution to promoting volunteering and dontating opportunities to Atlassian employees. Our application allows its users to view events from Humanitix on their confluence pages. 
 
 # Have a look at our app in action here
+
+## With Explanation
+https://github.com/user-attachments/assets/2384a018-1e5d-42a0-ad73-8da203a607ad
+
+## No Explanation. Quick silent walkthrough
 https://github.com/user-attachments/assets/a1122586-1ec5-465f-9daa-83540964bdd3
 
 # When was this app developed
